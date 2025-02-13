@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="climate-view.component.css">
+</head>
+
+<body>
+  <div class="box-display">
+    <input class="input-cidade" placeholder="Digite o nome da cidade" (keydown.enter)="BuscaCidade()">
+    <button class="btn-buscar" (click)="BuscaCidade()">
+      <img class="img-buscar" src="https://www.svgrepo.com/show/488200/find.svg" alt="Busca">
+    </button>
+    @if (receivedData) {
+    <div class="box-display-media">
+      <h2 class="titulo-cidade">Tempo em {{ receivedData.cidade }}</h2>
+
+      <p class="temperatura">{{ receivedData.temperatura }}° C</p>
+
+      <div class="box-display-pqna">
+        <img class="img-previsao" [src]="receivedData.icon" alt="icon-info-tempo">
+        <p class="clima"> {{ receivedData.clima }}</p>
+      </div>
+      <p class="umidade">Umidade: {{ receivedData.umidade }}%</p>
+    </div>
+  }
+  </div>
+</body>
+
+</html>
